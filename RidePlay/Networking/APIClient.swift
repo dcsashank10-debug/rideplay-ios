@@ -41,7 +41,7 @@ actor APIClient {
         return data
     }
 
-    func getJSONRaw(_ url: String) async throws -> Any {
+    func getJSONRaw(_ url: String) async throws -> [String: Any] {
         let data = try await getData(url)
         guard let obj = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
             throw APIError.decode("not an object")
