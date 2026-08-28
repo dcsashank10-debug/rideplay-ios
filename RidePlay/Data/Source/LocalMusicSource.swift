@@ -15,7 +15,7 @@ final class LocalMusicSource: MusicSource {
                   let title = item.title,
                   let artist = item.artist else { return nil }
             let dur = Int64(item.playbackDuration * 1000)
-            let art = item.artwork?.bounds.width != nil ? nil : nil
+            let art: String? = nil
             return Track(
                 id: "local-\(item.persistentID)",
                 title: title,
