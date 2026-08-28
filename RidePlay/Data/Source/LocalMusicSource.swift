@@ -10,7 +10,7 @@ final class LocalMusicSource: MusicSource {
         let predicate = MPMediaPropertyPredicate(value: false, forProperty: MPMediaItemPropertyIsCloudItem)
         query.addFilterPredicate(predicate)
         let items = query.items ?? []
-        return items.compactMap { item in
+        return items.compactMap { (item: MPMediaItem) -> Track? in
             guard let url = item.assetURL,
                   let title = item.title,
                   let artist = item.artist else { return nil }
